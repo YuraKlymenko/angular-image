@@ -1,0 +1,19 @@
+main {
+  min-height: calc(100vh - var(--footer-height));
+  height: calc(auto - var(--footer-height));
+  width: 100vw;
+
+  .image-upload-container {
+    min-height: 800px;
+    height: auto;
+    width: calc(100% - 32px);
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+  }
+}
+
+app-footer {
+  height: var(--footer-height);
+  width: 100vw;
+}

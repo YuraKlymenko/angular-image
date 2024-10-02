@@ -1,0 +1,29 @@
+.bg-main {
+  background-color: var(--clr-background-main);
+}
+
+.bg-secondary {
+  background-color: var(--clr-background-secondary);
+}
+
+.border-main {
+  border: 1px solid var(--clr-border-main);
+}
+
+.flex-centered-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}

@@ -1,0 +1,50 @@
+<form class="image-upload-container border-main" [formGroup]="boundingBoxControlsForm">
+  <div class="left-side flex-centered-wrapper">
+    <label for="file-upload">📂 {{selectedImage ? 'Change' : 'Choose'}} Image</label>
+    <input id="file-upload" type="file" (change)="handleFileSelection($event)" accept="image/*"/>
+
+    <div class="image-preview-container">
+      <img *ngIf="selectedImage" #imagePreview [src]="selectedImage" alt="Image Preview"/>
+
+      <div *ngIf="selectedImage && boundingBoxControlsForm.get('height')?.value && boundingBoxControlsForm.get('width')?.value"
+           class="bounding-div"
+           [ngStyle]="{top: (boundingBoxControlsForm.get('yStarts')?.value || 0) + 'px',
+                       left: (boundingBoxControlsForm.get('xStarts')?.value || 0) + 'px',
+                       height: (boundingBoxControlsForm.get('height')?.value || 0) + 'px',
+                       width: (boundingBoxControlsForm.get('width')?.value || 0) + 'px'}">
+      </div>
+    </div>
+  </div>
+
+  <div class="right-side">
+    <div class="controls-group">
+      <h3>Controls</h3>
+      <p>Height: {{ imageHeight }} px</p>
+      <p>Width: {{ imageWidth }} px</p>
+    </div>
+
+    <div class="controls-group">
+      <h3>Bounding box</h3>
+      <div class="control-item">
+        <label for="x-starts">X starts</label>
+        <input type="number" id="x-starts" formControlName="xStarts" placeholder="0">
+      </div>
+
+      <div class="control-item">
+        <label for="y-starts">Y starts</label>
+        <input type="number" id="y-starts" formControlName="yStarts" placeholder="0">
+      </div>
+
+      <div class="control-item">
+        <label for="height">Box height</label>
+        <input type="number" id="height" formControlName="height" placeholder="0">
+      </div>
+
+      <div class="control-item">
+        <label for="width">Box width</label>
+        <input type="number" id="width" formControlName="width" placeholder="0">
+      </div>
+
+    </div>
+  </div>
+</form>

@@ -1,3 +1,5 @@
+@import '../../assets/styles/breakpoints';
+
 :host {
   min-height: 800px;
   height: auto;
@@ -14,11 +16,20 @@
   gap: 16px;
   border-radius: var(--border-radius);
 
+  @media(max-width: map-get($breakpoints, large)) {
+    flex-direction: column;
+    min-height: 100%;
+  }
+
   .left-side {
     height: auto;
     width: 75%;
     flex-direction: column;
     padding: 16px;
+
+    @media(max-width: map-get($breakpoints, large)) {
+      width: 100%;
+    }
 
     input[type="file"] {
       display: none;
@@ -60,6 +71,11 @@
     gap: 16px;
     padding: 16px;
     border-left: 1px solid var(--clr-border-main);
+
+    @media(max-width: map-get($breakpoints, large)) {
+      min-height: unset;
+      width: 100%;
+    }
 
     .controls-group {
       width: 100%;
